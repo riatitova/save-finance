@@ -1,0 +1,19 @@
+@use './variables.scss';
+
+@mixin button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  width: 8.25rem;
+  height: 2.5rem;
+  outline: none;
+  background: variables.$button-color;
+  border-color: variables.$button-color;
+  color: variables.$text-color;
+  border-radius: 0.25rem;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
