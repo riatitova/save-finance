@@ -3,6 +3,7 @@
 
 .auth {
   height: calc(100vh - #{variables.$header-height});
+  width: calc(100vw - #{variables.$navigation-width});
   display: flex;
   justify-content: center;
   &__content {

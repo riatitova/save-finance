@@ -7,7 +7,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthComponent } from './components/auth/auth.component';
-import { MainPageComponent } from './components/main-page/main-page.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MainPageComponent } from './components/main-page/main-page.component';
     HeaderComponent,
     NavigationComponent,
     AuthComponent,
-    MainPageComponent
+    MainPageComponent,
+    AuthPageComponent
   ],
   imports: [
     BrowserModule,
