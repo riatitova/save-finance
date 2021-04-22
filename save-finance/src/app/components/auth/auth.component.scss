@@ -2,17 +2,21 @@
 @use '../../../scss/mixins.scss';
 
 .auth {
+  height: calc(100vh - #{variables.$header-height});
+  display: flex;
+  justify-content: center;
   &__content {
-    position: relative;
-    background-color: #fff;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 650px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 40.6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: variables.$text-color;
     & h4 {
       font-size: 1.875rem;
     }
@@ -23,15 +27,15 @@
       display: inline-block;
       border: none;
       border-radius: 5px;
-      background: #f1f1f1;
+      background: variables.$input-background;
 
       &:focus {
-        background-color: #ddd;
+        background-color: variables.$input-hover;
         outline: none;
       }
     }
   }
-  &__close {
+  &__content-close {
     position: absolute;
     right: 2rem;
     top: 5px;
@@ -54,7 +58,7 @@
       content: " ";
       height: 2rem;
       width: 2px;
-      background-color: #333;
+      background-color: variables.$close-button;
     }
 
     &:before {
@@ -66,39 +70,26 @@
     }
   }
 
-  &__login {
+  &__content-login {
     @include mixins.button;
     margin-bottom: 0.625rem;
   }
 }
 
-.overlay {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+@media screen and (max-width: 650px) {
+  .auth__content {
+    width: 31.25rem;
+  }
 }
 
+@media screen and (max-width: 500px) {
+  .auth__content {
+    width: 25rem;
+  }
+}
 
-@media screen and (max-width: 650px) {
-    .auth__content {
-      width: 31.25rem;
-    }
+@media screen and (max-width: 400px) {
+  .auth__content {
+    width: 18.75rem;
   }
-  
-  @media screen and (max-width: 500px) {
-    .auth__content {
-      width: 25rem;
-    }
-  }
-  
-  @media screen and (max-width: 400px) {
-    .auth__content {
-      width: 18.75rem;
-    }
-  }
+}

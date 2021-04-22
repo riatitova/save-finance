@@ -7,13 +7,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthComponent } from './components/auth/auth.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     NavigationComponent,
-    AuthComponent
+    AuthComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
