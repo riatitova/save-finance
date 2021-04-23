@@ -1,0 +1,12 @@
+.main-page {
+    &__wrapper {
+        width: 100vw;
+        display: flex;
+    }
+    &__statistic {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+}
