@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { AuthComponent } from './components/auth/auth.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AuthPageComponent } from './pages/auth-page/auth-page.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     SharedModule
   ],

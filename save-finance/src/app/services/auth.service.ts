@@ -1,15 +1,26 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { DatabaseService } from './database.service';
+
+interface IState {
+  login: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  clickLogin: EventEmitter<boolean> = new EventEmitter();
+  state: IState;
 
-  constructor() { }
+  constructor(private DBService: DatabaseService) {
+    this.state = {login: 'false'};
+   }
 
-  logIn(password: string, email: string): void {
+  async logIn(login: string, password: string): Promise<void> {
+    const isCorrectPassword = await this.DBService.checkPassword(login, password);
+    if (isCorrectPassword) {
+      this.state.login = 'true';
+    }
     
   }
 }

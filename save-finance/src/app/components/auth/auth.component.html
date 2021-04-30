@@ -1,14 +1,30 @@
 <div class="auth">
-  <form class="auth__content">
-    <h4>Login</h4>
-    <button type="button" class="auth__content-close"></button>
-    <input type="text" placeholder="Enter Name" id="name" maxlength="30" />
+  <form (ngSubmit)="onSubmit()" class="auth__content" #form="ngForm">
+    <h4 class="auth__header">Login</h4>
     <input
+      class="auth__input"
+      type="text"
+      required
+      placeholder="Enter Login"
+      id="login"
+      maxlength="30"
+      minlength="3"
+      [(ngModel)]="user.login"
+      name="login"
+    />
+    <input
+      class="auth__input"
       type="password"
+      required
       placeholder="Enter Password"
       id="password"
+      minlength="4"
       maxlength="25"
+      [(ngModel)]="user.password"
+      name="password"
     />
-    <button type="submit" class="auth__content-login">Login</button>
+    <button type="submit" class="auth__content-login" [disabled]="!form.valid">
+      Login
+    </button>
   </form>
 </div>

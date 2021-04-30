@@ -6,6 +6,7 @@
   width: calc(100vw - #{variables.$navigation-width});
   display: flex;
   justify-content: center;
+
   &__content {
     width: 40.6rem;
     display: flex;
@@ -14,66 +15,33 @@
     position: relative;
     margin: auto;
     padding: 0;
-    border: 1px solid #888;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 0.25rem;
+    box-shadow: 0rem 0.25rem 0.625rem rgba(0, 0, 0, 0.12);
     background-color: variables.$text-color;
-    & h4 {
-      font-size: 1.875rem;
-    }
-    & input {
-      width: 90%;
-      padding: 0.9rem;
-      margin: 5px 0 22px 0;
-      display: inline-block;
-      border: none;
-      border-radius: 5px;
-      background: variables.$input-background;
-
-      &:focus {
-        background-color: variables.$input-hover;
-        outline: none;
-      }
-    }
   }
-  &__content-close {
-    position: absolute;
-    right: 2rem;
-    top: 5px;
-    width: 2rem;
-    height: 2rem;
-    opacity: 0.3;
-    background: none;
-    border: 0;
-    cursor: pointer;
-    outline: 0;
 
-    &:hover {
-      opacity: 1;
-    }
+  &__header {
+    font-size: 1.875rem;
+  }
 
-    &:before,
-    &:after {
-      position: absolute;
-      left: 0.9rem;
-      content: " ";
-      height: 2rem;
-      width: 2px;
-      background-color: variables.$close-button;
-    }
+  &__input {
+    width: 90%;
+    padding: 0.9rem;
+    margin: 0.313rem 0 1.375rem 0;
+    display: inline-block;
+    border: none;
+    border-radius: 0.313rem;
+    background: variables.$input-background;
 
-    &:before {
-      transform: rotate(45deg);
-    }
-
-    &:after {
-      transform: rotate(-45deg);
+    &:focus {
+      background-color: variables.$input-hover;
+      outline: none;
     }
   }
 
   &__content-login {
     @include mixins.button;
-    margin-bottom: 0.625rem;
+    margin-bottom: 1.5rem;
   }
 }
 

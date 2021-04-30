@@ -1,6 +1,5 @@
-import { ChangeDetectionStrategy, EventEmitter, Output } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
-import {DatabaseService} from '../../services/database.service';
+import { ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-auth-page',
@@ -8,13 +7,4 @@ import {DatabaseService} from '../../services/database.service';
   styleUrls: ['./auth-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AuthPageComponent implements OnInit {
-  @Output() 
-  clickAutnButton = new EventEmitter<boolean>();
-
-  constructor(private DBService: DatabaseService) {
-    this.DBService.checkUser('Mary');
-  }
-
-  ngOnInit(): void {}
-}
+export class AuthPageComponent {}
