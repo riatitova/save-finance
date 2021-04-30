@@ -3,4 +3,7 @@
 .header {
   height: variables.$header-height;
   background-color: variables.$background-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
