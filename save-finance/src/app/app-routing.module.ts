@@ -8,12 +8,12 @@ const routes: Routes = [
   { path: ParamKey.main, component: MainPageComponent },
   {
     path: ParamKey.login,
-    loadChildren: (): any =>
+    loadChildren: () =>
       import('./pages/auth-page/auth-page.module').then((module) => module.AuthPageModule),
   },
   {
     path: ParamKey.main,
-    loadChildren: (): any =>
+    loadChildren: () =>
       import('./pages/main-page/main-page.module').then((module) => module.MainPageModule),
   },
   { path: ParamKey.notFound, redirectTo: QueryParamKey.redirectTo },

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './components/button/button.component';
 import { ContentBorderComponent } from './components/content-border/content-border.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,7 @@ import { LogoComponent } from './components/logo/logo.component';
     ContentBorderComponent,
     LogoComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   exports: [
     ButtonComponent,
     ContentBorderComponent,

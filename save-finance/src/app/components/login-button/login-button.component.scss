@@ -2,5 +2,5 @@
 @use  '../../../scss/mixins.scss';
 
 .login-button {
-  @include mixins.button;
+  @include mixins.primary-button;
 }
