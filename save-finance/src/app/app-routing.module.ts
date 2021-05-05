@@ -16,6 +16,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/main-page/main-page.module').then((module) => module.MainPageModule),
   },
+  {
+    path: ParamKey.income,
+    loadChildren: () =>
+      import('./pages/income-page/income-page.module').then((module) => module.IncomePageModule),
+  },
   { path: ParamKey.notFound, redirectTo: QueryParamKey.redirectTo },
 ];
 

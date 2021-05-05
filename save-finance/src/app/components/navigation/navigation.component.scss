@@ -1,9 +1,8 @@
 @use '../../../scss/variables.scss';
 
 .navigation {
-    width: 50px;
-    min-height: calc(100vh - #{variables.$header-height});
-    height: 100%;
+    width: variables.$navigation-width;
+    height: calc(100% - #{variables.$header-height});
     position: absolute;
     left: 0;
     background-color: variables.$background-color;
