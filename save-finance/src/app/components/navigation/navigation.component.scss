@@ -2,7 +2,10 @@
 
 .navigation {
     width: 50px;
-    height: calc(100vh - #{variables.$header-height});
+    min-height: calc(100vh - #{variables.$header-height});
+    height: 100%;
+    position: absolute;
+    left: 0;
     background-color: variables.$background-color;
     &__link {
         padding: 10px;

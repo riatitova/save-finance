@@ -1,0 +1,18 @@
+@use '../../../scss/mixins.scss';
+
+.weather {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+    &__button {
+        @include mixins.button();
+        margin: auto;
+        width: fit-content;
+    }
+}
