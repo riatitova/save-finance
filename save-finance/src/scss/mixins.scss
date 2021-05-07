@@ -1,0 +1,71 @@
+@use './variables.scss';
+@import './fonts.scss';
+
+@mixin button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  width: 8.25rem;
+  height: 2.5rem;
+  outline: none;
+  background: variables.$button-color;
+  border-color: variables.$button-color;
+  color: variables.$text-color;
+  border-radius: 0.25rem;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+
+@mixin primary-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 0.6rem;
+  padding: 0.6rem 1rem;
+  width: 8.25rem;
+  height: 2.5rem;
+  background: variables.$primary-button;
+  border: 1px solid variables.$button-color;
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+  color: variables.$button-color;
+  font-family: 'Inter';
+  &:hover {
+    cursor: pointer;
+    background: variables.$button-color;
+    color: variables.$text-color;
+  }
+}
+
+@mixin content-border {
+  width: 33.75rem;
+  height: 15.25rem;
+  margin-bottom: 2rem;
+  margin-right: 3rem;
+  background: variables.$text-color;
+  box-shadow: 0rem 0.25rem 0.625rem rgba(0, 0, 0, 0.12);
+  border-radius: 0.25rem;
+}
+
+@mixin content-border-info {
+  width: 22.25rem;
+  height: 26.5rem;
+  margin-bottom: 2rem;
+  margin-right: 3rem;
+  background: variables.$text-color;
+  box-shadow: 0rem 0.25rem 0.625rem rgba(0, 0, 0, 0.12);
+  border-radius: 0.25rem;
+}
+
+@mixin content-border-balances {
+  width: 33.75rem;
+  height: 32.875rem;
+  margin-bottom: 2rem;
+  margin-right: 3rem;
+  background: variables.$text-color;
+  box-shadow: 0rem 0.25rem 0.625rem rgba(0, 0, 0, 0.12);
+  border-radius: 0.25rem;
+}

@@ -1,0 +1,13 @@
+@use '../../../scss/mixins.scss';
+
+.info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    &__content-border {
+        @include mixins.content-border-info();
+        display: flex;
+        justify-content: center;
+    }
+}

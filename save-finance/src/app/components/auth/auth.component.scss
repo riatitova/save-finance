@@ -1,0 +1,69 @@
+@use '../../../scss/variables.scss';
+@use '../../../scss/mixins.scss';
+
+.auth {
+  height: calc(100vh - #{variables.$header-height});
+  width: calc(100vw - #{variables.$navigation-width});
+  display: flex;
+  justify-content: center;
+
+  &__alert {
+    color: variables.$alert-color;
+    margin-bottom: 1rem;
+  }
+
+  &__content {
+    width: 40.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin: auto;
+    padding: 0;
+    border-radius: 0.25rem;
+    box-shadow: 0rem 0.25rem 0.625rem rgba(0, 0, 0, 0.12);
+    background-color: variables.$text-color;
+  }
+
+  &__header {
+    font-size: 1.875rem;
+  }
+
+  &__input {
+    width: 90%;
+    padding: 0.9rem;
+    margin: 0.313rem 0 1.375rem 0;
+    display: inline-block;
+    border: none;
+    border-radius: 0.313rem;
+    background: variables.$input-background;
+
+    &:focus {
+      background-color: variables.$input-hover;
+      outline: none;
+    }
+  }
+
+  &__content-login {
+    @include mixins.button;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .auth__content {
+    width: 31.25rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .auth__content {
+    width: 25rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .auth__content {
+    width: 18.75rem;
+  }
+}
