@@ -22,7 +22,7 @@ export class DatabaseService {
     });
   }
 
-  addUser(login: string, password: string): Observable<any> {
+  addUser(login: string, email: string, password: string): Observable<IUser[]> {
     const shaObject = new jsSHA('SHA-256', 'TEXT', {
       encoding: 'UTF8',
       numRounds: 1,
@@ -30,10 +30,12 @@ export class DatabaseService {
     shaObject.update(password);
     const hash = shaObject.getHash('HEX');
 
-    return from(this.database.users.put({
+    from(this.database.users.put({
       login,
+      email,
       password: hash,
     }));
+    return this.makeQuery(login);
   }
 
   makeQuery(login: string): Observable<any> {

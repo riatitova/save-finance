@@ -1,7 +1,7 @@
 @use '../../../scss/variables.scss';
 @use '../../../scss/mixins.scss';
 
-.auth {
+.registration {
   height: calc(100vh - #{variables.$header-height});
   width: calc(100vw - #{variables.$navigation-width});
   display: flex;
@@ -44,26 +44,26 @@
     }
   }
 
-  &__content-login {
+  &__content-registration {
     @include mixins.button;
     margin-bottom: 1.5rem;
   }
 }
 
 @media screen and (max-width: 650px) {
-  .auth__content {
+  .registration__content {
     width: 31.25rem;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .auth__content {
+  .registration__content {
     width: 25rem;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .auth__content {
+  .registration__content {
     width: 18.75rem;
   }
 }

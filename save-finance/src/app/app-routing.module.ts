@@ -12,6 +12,11 @@ const routes: Routes = [
       import('./pages/auth-page/auth-page.module').then((module) => module.AuthPageModule),
   },
   {
+    path: ParamKey.registration,
+    loadChildren: () =>
+      import('./pages/registration-page/registration-page.module').then((module) => module.RegistrationPageModule),
+  },
+  {
     path: ParamKey.main,
     loadChildren: () =>
       import('./pages/main-page/main-page.module').then((module) => module.MainPageModule),

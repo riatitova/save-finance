@@ -19,7 +19,7 @@ export class WeatherComponent {
   weatherDescription: string;
   weatherSearchForm: FormGroup;
 
-  constructor(private WeatherService: WeatherService,  private formBuilder: FormBuilder,) {
+  constructor(private WeatherService: WeatherService,  private formBuilder: FormBuilder) {
     this.weatherSearchForm = this.formBuilder.group({
       city: [""]
     });

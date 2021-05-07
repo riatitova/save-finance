@@ -9,6 +9,9 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { InfoComponent } from './info/info.component';
 import { WeatherComponent } from './weather/weather.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { RegistrationButtonComponent } from './registration-button/registration-button.component';
+import { LogoutButtonComponent } from './logout-button/logout-button.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { WeatherComponent } from './weather/weather.component';
     NavigationComponent,
     LoginButtonComponent,
     InfoComponent,
-    WeatherComponent
+    WeatherComponent,
+    RegistrationComponent,
+    RegistrationButtonComponent,
+    LogoutButtonComponent
   ],
   imports: [CommonModule, FormsModule, RouterModule, SharedModule, ReactiveFormsModule],
   exports: [
@@ -26,7 +32,10 @@ import { WeatherComponent } from './weather/weather.component';
     NavigationComponent,
     LoginButtonComponent,
     InfoComponent,
-    WeatherComponent
+    WeatherComponent,
+    RegistrationComponent,
+    RegistrationButtonComponent,
+    LogoutButtonComponent
   ],
 })
 export class CoreModule {}

@@ -14,13 +14,28 @@ export class UserService {
 
   constructor(private DBService: DatabaseService, private router: Router) {
     this.currentUserSubject$ = new BehaviorSubject<IUser | null>(
-      JSON.parse(localStorage.getItem('currentUser') || '{}')
+      JSON.parse(String(localStorage.getItem('currentUser')))
     );
     this.currentUser$ = this.currentUserSubject$.asObservable() || null;
   }
 
   public get currentUserValue(): IUser | null {
     return this.currentUserSubject$.value;
+  }
+
+  isLogin(): boolean {
+    return this.currentUserValue === null;
+  }
+
+  register(login: string, email: string, password: string): void {
+    this.DBService.addUser(login, email, password).subscribe(
+      (result: IUser[]) => {
+        const currentUser = result[0];
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        this.currentUserSubject$.next(currentUser);
+        this.router.navigate(['main']);
+      }
+    );
   }
 
   logIn(login: string, currentPassword: string): void {

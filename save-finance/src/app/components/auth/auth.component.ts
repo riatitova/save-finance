@@ -11,7 +11,7 @@ export class AuthComponent {
   user: IUser;
 
   constructor(private UserService: UserService) {
-    this.user = { login: '', password: '' };
+    this.user = { login: '', email: '', password: '' };
   }
 
   onSubmit() {
