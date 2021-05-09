@@ -1,10 +1,17 @@
 <header class="header">
   <app-logo></app-logo>
-  <div class="header__buttons" *ngIf="isLogin()">
-    <app-login-button></app-login-button>
-    <app-registration-button></app-registration-button>
-  </div>
-  <div class="header__logout" *ngIf="!isLogin()">
-    <app-logout-button></app-logout-button>
-  </div>
+
+  <div
+    class="header__buttons"
+    *ngIf="isLogin() | async; then logout else login"
+  ></div>
 </header>
+
+<ng-template #login>
+  <app-login-button></app-login-button>
+  <app-registration-button></app-registration-button>
+</ng-template>
+
+<ng-template #logout>
+  <app-logout-button></app-logout-button>
+</ng-template>

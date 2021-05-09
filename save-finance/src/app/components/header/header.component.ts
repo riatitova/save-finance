@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class HeaderComponent {
   constructor(private UserService: UserService) {
   }
 
-  isLogin(): boolean {
-    return this.UserService.isLogin();
+  isLogin(): Observable<boolean> {
+    return this.UserService.isLogin$();
   }
 }

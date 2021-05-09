@@ -3,9 +3,12 @@
 .weather {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     height: 100%;
+    &__city {
+        @include mixins.input();
+        margin-bottom: 0.5rem;
+    }
     &__form {
         display: flex;
         flex-direction: column;
@@ -14,5 +17,11 @@
         @include mixins.button();
         margin: auto;
         width: fit-content;
+        height: 2rem;
+    }
+    &__content {
+        margin-top: 0.5rem;
+        line-height: 130%;
+        letter-spacing: 0.09rem;
     }
 }
