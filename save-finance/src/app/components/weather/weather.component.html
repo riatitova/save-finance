@@ -2,7 +2,7 @@
   <h3>Weather</h3>
   <form
     [formGroup]="weatherSearchForm"
-    (ngSubmit)="getWeather(weatherSearchForm.value)"
+    (ngSubmit)="updateWeatherData(weatherSearchForm.value)"
     class="weather__form"
   >
     <input
@@ -17,8 +17,11 @@
       Search for the weather
     </button>
   </form>
-  <div class="temperature">{{ temperature }}</div>
-  <div class="humidity">{{ humidity }}</div>
-  <div class="wind">{{ wind }}</div>
-  <div class="weather-description">{{ weatherDescription }}</div>
+
+  <section *ngIf="getWeatherData$() | async as weather" class="weather__content">
+    <div>temperature: {{ weather.temperature }}°C</div>
+    <div>humidity: {{ weather.humidity }}%</div>
+    <div>wind: {{ weather.wind }} m/sec</div>
+    <div>weather description: {{ weather.weatherDescription }}</div>
+  </section>
 </div>

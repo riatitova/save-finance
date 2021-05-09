@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import jsSHA from 'jssha/dist/sha256';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import IUser from '../models/user';
 import { DatabaseService } from './database.service';
 
@@ -9,30 +10,24 @@ import { DatabaseService } from './database.service';
   providedIn: 'root',
 })
 export class UserService {
-  private currentUserSubject$: BehaviorSubject<IUser | null>;
-  public currentUser$: Observable<IUser | null>;
+  private currentUser$: BehaviorSubject<IUser | null>;
 
   constructor(private DBService: DatabaseService, private router: Router) {
-    this.currentUserSubject$ = new BehaviorSubject<IUser | null>(
+    this.currentUser$ = new BehaviorSubject<IUser | null>(
       JSON.parse(String(localStorage.getItem('currentUser')))
     );
-    this.currentUser$ = this.currentUserSubject$.asObservable() || null;
   }
 
-  public get currentUserValue(): IUser | null {
-    return this.currentUserSubject$.value;
+  isLogin$(): Observable<boolean> {
+    return this.currentUser$.asObservable().pipe(map((user: IUser | null) => !!user));
   }
 
-  isLogin(): boolean {
-    return this.currentUserValue === null;
-  }
-
-  register(login: string, email: string, password: string): void {
+  register({login, email, password}: IUser): void {
     this.DBService.addUser(login, email, password).subscribe(
       (result: IUser[]) => {
         const currentUser = result[0];
         localStorage.setItem('currentUser', JSON.stringify(currentUser));
-        this.currentUserSubject$.next(currentUser);
+        this.currentUser$.next(currentUser);
         this.router.navigate(['main']);
       }
     );
@@ -45,7 +40,7 @@ export class UserService {
       const isPasswordCorrect = this.checkPassword(currentPassword, dbPassword);
       if (isPasswordCorrect) {
         localStorage.setItem('currentUser', JSON.stringify(currentUser));
-        this.currentUserSubject$.next(currentUser);
+        this.currentUser$.next(currentUser);
         this.router.navigate(['main']);
       }
     });
@@ -53,7 +48,7 @@ export class UserService {
 
   logOut(): void {
     localStorage.removeItem('currentUser');
-    this.currentUserSubject$.next(null);
+    this.currentUser$.next(null);
     this.router.navigate(['main']);
   }
 

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { WeatherService } from 'src/app/services/weather.service';
+import { Observable } from 'rxjs';
+import { Weather, WeatherService } from 'src/app/services/weather.service';
+import { WeatherResponse } from 'src/types/WeatherResponse';
 
 interface IFormValue {
   city: string;
@@ -13,10 +15,6 @@ interface IFormValue {
 })
 export class WeatherComponent {
   city: string;
-  temperature: string;
-  humidity: string;
-  wind: string;
-  weatherDescription: string;
   weatherSearchForm: FormGroup;
 
   constructor(private WeatherService: WeatherService,  private formBuilder: FormBuilder) {
@@ -24,23 +22,13 @@ export class WeatherComponent {
       city: [""]
     });
     this.city = 'Enter city';
-    this.temperature = '';
-    this.humidity = '';
-    this.wind = '';
-    this.weatherDescription = '';
   }
 
-  getWeather(formValue: IFormValue): void {
-      this.WeatherService.getWeatherApi(formValue.city).subscribe((data) => {
-        if (data.cod === 404) {
-          this.city = '[Enter city]';
-        } else {
-          this.city = formValue.city;
-          this.temperature = `temperature: ${data.main.temp}°C`;
-          this.humidity = `humidity: ${data.main.humidity}%`;
-          this.wind = `wind: ${data.wind.speed} m/sec`;
-          this.weatherDescription = data.weather[0].description;
-        }
-      });
+  getWeatherData$(): Observable<Weather> {
+    return this.WeatherService.getWeather$();
+  }
+
+  updateWeatherData(formValue: IFormValue): void {
+    this.WeatherService.setCurrentCity(formValue.city);
   }
 }

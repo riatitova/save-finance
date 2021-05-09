@@ -10,28 +10,21 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegistrationComponent {
-  user: IUser;
   registrationForm: FormGroup;
 
   constructor(
     private UserService: UserService,
     private formBuilder: FormBuilder
   ) {
-    this.user = { login: '', email: '', password: '' };
     this.registrationForm = this.formBuilder.group({});
     this.initForm();
   }
 
   onSubmit() {
-    this.user = { ...this.registrationForm.value };
-    this.UserService.register(
-      this.user.login,
-      this.user.email,
-      this.user.password
-    );
+    this.UserService.register(this.registrationForm.value);
   }
 
-  initForm(): void {
+  private initForm(): void {
     this.registrationForm = this.formBuilder.group({
       login: [
         '',
