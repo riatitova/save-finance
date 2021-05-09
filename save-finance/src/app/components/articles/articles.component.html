@@ -1,0 +1,6 @@
+<div class="articles">
+  <h3 class="articles__header">Useful articles</h3>
+  <section *ngIf="getArticlesData$() | async as articles" class="articles__content">
+    <a *ngFor="let article of articles" href="{{article.url}}" class="articles__link">{{article.title}}<hr></a>
+  </section>
+</div>

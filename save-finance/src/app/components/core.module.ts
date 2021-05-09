@@ -12,6 +12,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { RegistrationButtonComponent } from './registration-button/registration-button.component';
 import { LogoutButtonComponent } from './logout-button/logout-button.component';
+import { ArticlesComponent } from './articles/articles.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LogoutButtonComponent } from './logout-button/logout-button.component';
     WeatherComponent,
     RegistrationComponent,
     RegistrationButtonComponent,
-    LogoutButtonComponent
+    LogoutButtonComponent,
+    ArticlesComponent
   ],
   imports: [CommonModule, FormsModule, RouterModule, SharedModule, ReactiveFormsModule],
   exports: [
@@ -35,7 +37,8 @@ import { LogoutButtonComponent } from './logout-button/logout-button.component';
     WeatherComponent,
     RegistrationComponent,
     RegistrationButtonComponent,
-    LogoutButtonComponent
+    LogoutButtonComponent,
+    ArticlesComponent
   ],
 })
 export class CoreModule {}
