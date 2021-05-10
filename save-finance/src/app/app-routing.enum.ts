@@ -6,6 +6,7 @@ export enum ParamKey {
   login = 'login',
   calendar = 'calendar',
   registration = 'registration',
+  item = 'add-item',
 }
 
 export enum QueryParamKey {

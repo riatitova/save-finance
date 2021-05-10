@@ -1,0 +1,13 @@
+@use '../../../scss/mixins.scss';
+@use '../../../scss/variables.scss';
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__wrapper {
+        @include mixins.content-border-balances();
+        margin-top: 5rem;
+        margin-right: 0;
+    }
+}

@@ -13,6 +13,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { RegistrationButtonComponent } from './registration-button/registration-button.component';
 import { LogoutButtonComponent } from './logout-button/logout-button.component';
 import { ArticlesComponent } from './articles/articles.component';
+import { AddItemComponent } from './add-item/add-item.component';
+import { AddButtonComponent } from './add-button/add-button.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { ArticlesComponent } from './articles/articles.component';
     RegistrationComponent,
     RegistrationButtonComponent,
     LogoutButtonComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    AddItemComponent,
+    AddButtonComponent,
+    AccountsComponent
   ],
   imports: [CommonModule, FormsModule, RouterModule, SharedModule, ReactiveFormsModule],
   exports: [
@@ -38,7 +44,10 @@ import { ArticlesComponent } from './articles/articles.component';
     RegistrationComponent,
     RegistrationButtonComponent,
     LogoutButtonComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    AddItemComponent,
+    AddButtonComponent,
+    AccountsComponent
   ],
 })
 export class CoreModule {}

@@ -1,0 +1,46 @@
+<div class="item">
+  <h3 class="item__header">Add item</h3>
+  <form (ngSubmit)="onSubmit()" class="item__content" #form="ngForm">
+    <div class="form-group">
+      <label for="select">Select category</label>
+      <select
+        class="form-control"
+        type="text"
+        required
+        placeholder="Select menu"
+        id="select"
+        [(ngModel)]="item.selected"
+        name="select"
+      >
+        <option *ngFor="let option of options" class="list-group-item">
+          {{ option.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="input">Item name</label>
+      <input
+        class="form-control"
+        type="text"
+        required
+        placeholder="Enter item name"
+        id="input"
+        minlength="4"
+        maxlength="25"
+        [(ngModel)]="item.input"
+        name="input"
+      />
+    </div>
+    <div class="form-group">
+      <br />
+      <div class="alert-danger alert" role="alert" *ngIf="!form.valid">
+        Something is wrong. Check your data.
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="item__button" [disabled]="!form.valid">
+        Done
+      </button>
+    </div>
+  </form>
+</div>

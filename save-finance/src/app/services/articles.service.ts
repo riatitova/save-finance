@@ -26,7 +26,7 @@ export class ArticlesService {
   getArticles$(): Observable<Articles[]> {
     return this.articles$.asObservable().pipe(
       map((response) => {
-        const result = response.result.splice(0, 5).map((value) => {
+        const result = response.result.slice(0, 5).map((value) => {
           return { url: value.url, title: value.title };
         });
         return result;
