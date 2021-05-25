@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { barChart, barChartData } from '../bar-chart/barChartData';
+import { barChart, barChartData } from '../../models/barChartData';
 
 @Component({
   selector: 'app-accounts',

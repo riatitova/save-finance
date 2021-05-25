@@ -19,6 +19,7 @@ import { AccountsComponent } from './accounts/accounts.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IncomeComponent } from './income/income.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddButtonComponent,
     AccountsComponent,
     BarChartComponent,
+    IncomeComponent
   ],
   imports: [CommonModule, FormsModule, RouterModule, SharedModule, ReactiveFormsModule, NgxChartsModule ],
   exports: [
@@ -53,6 +55,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddButtonComponent,
     AccountsComponent,
     BarChartComponent,
+    IncomeComponent
   ],
 })
 export class CoreModule {}
