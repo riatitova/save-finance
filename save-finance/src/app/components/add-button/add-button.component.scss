@@ -3,4 +3,5 @@
 
 .add-button {
   @include mixins.button;
+  margin: 4rem;
 }

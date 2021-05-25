@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { barChart, barChartData } from '../bar-chart/barChartData';
 
 @Component({
   selector: 'app-accounts',
   templateUrl: './accounts.component.html',
   styleUrls: ['./accounts.component.scss']
 })
-export class AccountsComponent implements OnInit {
+export class AccountsComponent {
+  accounts: Array<string>;
+  data: barChart;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() { 
+    this.accounts = ['Cash', 'Card', 'Investition'];
+    this.data = [...barChartData];
   }
-
+ 
 }
