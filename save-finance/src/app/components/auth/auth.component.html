@@ -1,0 +1,33 @@
+<div class="auth">
+  <form (ngSubmit)="onSubmit()" class="auth__content" #form="ngForm">
+    <h4 class="auth__header">Login</h4>
+    <input
+      class="auth__input"
+      type="text"
+      required
+      placeholder="Enter Login"
+      id="login"
+      maxlength="30"
+      minlength="3"
+      [(ngModel)]="user.login"
+      name="login"
+    />
+    <input
+      class="auth__input"
+      type="password"
+      required
+      placeholder="Enter Password"
+      id="password"
+      minlength="4"
+      maxlength="25"
+      [(ngModel)]="user.password"
+      name="password"
+    />
+    <div class="auth__alert" *ngIf="!form.valid">
+      Something is wrong. Check your data.
+    </div>
+    <button type="submit" class="auth__content-login" [disabled]="!form.valid">
+      Login
+    </button>
+  </form>
+</div>

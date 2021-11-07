@@ -1,0 +1,27 @@
+<div class="weather">
+  <h3>Weather</h3>
+  <form
+    [formGroup]="weatherSearchForm"
+    (ngSubmit)="updateWeatherData(weatherSearchForm.value)"
+    class="weather__form"
+  >
+    <input
+      class="weather__city form-control"
+      type="text"
+      id="weatherCity"
+      value="{{ city }}"
+      placeholder="Please enter your city"
+      formControlName="city"
+    />
+    <button type="submit" class="weather__button">
+      Search for the weather
+    </button>
+  </form>
+
+  <section *ngIf="getWeatherData$() | async as weather" class="weather__content">
+    <div>temperature: {{ weather.temperature }}°C</div>
+    <div>humidity: {{ weather.humidity }}%</div>
+    <div>wind: {{ weather.wind }} m/sec</div>
+    <div>weather description: {{ weather.weatherDescription }}</div>
+  </section>
+</div>

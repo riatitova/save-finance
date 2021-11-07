@@ -1,0 +1,12 @@
+@use '../../../scss/variables.scss';
+
+.navigation {
+    width: variables.$navigation-width;
+    height: calc(100% - #{variables.$header-height});
+    position: absolute;
+    left: 0;
+    background-color: variables.$background-color;
+    &__link {
+        padding: 10px;
+    }
+}

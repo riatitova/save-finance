@@ -1,0 +1,47 @@
+<div class="registration">
+  <form
+    (ngSubmit)="onSubmit()"
+    class="registration__content"
+    #form="ngForm"
+    [formGroup]="registrationForm"
+  >
+    <h4 class="registration__header">Registration</h4>
+    <input
+      class="registration__input"
+      type="text"
+      formControlName="login"
+      placeholder="Enter Login"
+      id="login"
+    />
+    <div class="registration__alert" *ngIf="isControlInvalid('login')">
+      The login should be 3 to 30 Latin letters long
+    </div>
+    <input
+      class="registration__input"
+      type="text"
+      placeholder="Enter Email"
+      formControlName="email"
+      id="email"
+    />
+    <div class="registration__alert" *ngIf="isControlInvalid('email')">
+      The email is wrong
+    </div>
+    <input
+      class="registration__input"
+      type="password"
+      placeholder="Enter Password"
+      formControlName="password"
+      id="password"
+    />
+    <div class="registration__alert" *ngIf="isControlInvalid('password')">
+      The password should be 4 to 25 characters long
+    </div>
+    <button
+      type="submit"
+      class="registration__content-registration"
+      [disabled]="!form.valid"
+    >
+      Register
+    </button>
+  </form>
+</div>

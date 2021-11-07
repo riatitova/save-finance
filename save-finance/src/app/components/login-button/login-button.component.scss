@@ -1,0 +1,6 @@
+@use '../../../scss/variables.scss';
+@use  '../../../scss/mixins.scss';
+
+.login-button {
+  @include mixins.primary-button;
+}
